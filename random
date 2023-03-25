@@ -1,0 +1,75 @@
+ {/* <div className="m-10 border-1.5 rounded-xl">
+            <table className='w-full'>
+                <thead className='bg-gray-400 border-b-2 border-gray-10'>
+                    <tr>
+                        <th className='text-sm text-left font-semibold tracking-wide p-3'>Name</th>
+                        <th className='text-sm text-left font-semibold tracking-wide p-3'>Category</th>
+                        <th className='text-sm text-left font-semibold tracking-wide p-3'>Date of Expense</th>
+                        <th className='text-sm text-left font-semibold tracking-wide p-3'>Amount</th>
+                        <th className='text-sm text-left font-semibold tracking-wide p-3'>Updated at</th>
+                        <th className='text-sm text-left font-semibold tracking-wide p-3'>Created by</th>
+                        <th className='text-sm text-left font-semibold tracking-wide p-3'>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Purchased Book</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>CBC Test</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Boat Earphone</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Delhi Flight</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Bangalore Bus</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Fees</tr>
+                        </th>
+                        <th>
+                        <tr className='text-sm text-left font-semibold tracking-wide p-3'>Books</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Health</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Electronics</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Travel</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Travel</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Education</tr>
+                        </th>
+                        <th>
+                        <tr className='text-sm text-left font-semibold tracking-wide p-3'>27 Febuary, 2023</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>25 Febuary, 2023</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>24 Febuary, 2023</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>23 Febuary, 2023</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>22 Febuary, 2023</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>21 Febuary, 2023</tr>
+                        </th>
+                        <th>
+                        <tr className='text-sm text-left font-semibold tracking-wide p-3'>INR 500</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>INR 1,500</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>INR 1,000</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>INR 5000</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>INR 1,800</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>INR 2000</tr>
+                        </th>
+                        <th>
+                        <tr className='text-sm text-left font-semibold tracking-wide p-3'>Just now</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>7 hours ago</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>7 hours ago</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>15 hours ago</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>1 hours ago</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>2 hours ago</tr>
+                        </th>
+                        <th>
+                        <tr className='text-sm text-left font-semibold tracking-wide p-3'>Smith M</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>Jacob Jo</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>me</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>John D</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>John D</tr>
+                            <tr className='text-sm text-left font-semibold tracking-wide p-3'>me</tr>
+                        </th>
+                        <th>
+                        <tr className='text-sm text-left font-semibold tracking-wide p-3'></tr>
+                            <tr className='flex justify-between text-sm text-left font-semibold tracking-wide p-3'><MdModeEditOutline/><RiDeleteBin6Line style={{color:"red"}}/></tr>
+                            <tr className='flex justify-between text-sm text-left font-semibold tracking-wide p-3'><MdModeEditOutline/><RiDeleteBin6Line style={{color:"red"}}/></tr>
+                            <tr className='flex justify-between text-sm text-left font-semibold tracking-wide p-3'><MdModeEditOutline/><RiDeleteBin6Line style={{color:"red"}}/></tr>
+                            <tr className='flex justify-between text-sm text-left font-semibold tracking-wide p-3'><MdModeEditOutline/><RiDeleteBin6Line style={{color:"red"}}/></tr>
+                            <tr className='flex justify-between text-sm text-left font-semibold tracking-wide p-3'><MdModeEditOutline/><RiDeleteBin6Line style={{color:"red"}}/></tr>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </div> */}
