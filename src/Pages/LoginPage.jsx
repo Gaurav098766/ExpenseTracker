@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import loginimg from '../Assets/loginimg.jpg'
 import "../index.css"
+import {useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
 
@@ -8,6 +9,7 @@ const LoginPage = () => {
     const [password,setPassword] = useState("");
     const [emailerror,setemailError] = useState("");
     const [passerror,setpassError] = useState("");
+    const navigate = useNavigate()
 
     const validation = () => {
   const errors = {};
@@ -29,8 +31,9 @@ const LoginPage = () => {
 
         const handleSubmit = (e)=>{
             e.preventDefault();
-
+            
             const errors = validation();
+            console.log(errors)
 
 
             if(errors){
@@ -40,6 +43,7 @@ const LoginPage = () => {
             else{
                 setemailError("");
                 setpassError("")
+                navigate("/viewExpense")
             }
         }
 
@@ -66,7 +70,9 @@ const LoginPage = () => {
                 </div>
 
                 <div>
-                    <button className='w-full my-5 py-2 bg-orange-500 shadow-lg shadow-teal-500/0 hover:shadow-orange-500/40 text-white font-semibold rounded-lg'>Sign In</button>
+                  <button type="submit" className='w-full my-5 py-2 bg-orange-500 shadow-lg shadow-teal-500/0 hover:shadow-orange-500/40 text-white font-semibold rounded-lg'>
+                  SIGN IN
+                  </button>
                 </div>
             </form>
         </div>
