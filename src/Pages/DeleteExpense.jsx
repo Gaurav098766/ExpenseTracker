@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
+import { DataContext } from "../Contexts/data.context";
 const DeleteExpense = ({ closeModal }) => {
-
-
-
+  const {deleteItemId, deleteItem} = useContext(DataContext);
   return (
     <div className="modalBackground bg-slate-300 flex justify-center align-middle py-10 absolute w-full h-full top-0">
       <div className="modalContainer w-4/12 h-48 bg-white shadow-black flex justify-start flex-col p-8 mt-52">
@@ -21,6 +20,7 @@ const DeleteExpense = ({ closeModal }) => {
           </button>
           <button className="bg-green-600 rounded-md mt-12 m-4 p-4 text-white"
             onClick={()=>{
+              deleteItem();
               closeModal(false);
              }}   
           >Yes, Delete</button>

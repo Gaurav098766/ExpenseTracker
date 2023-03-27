@@ -43,6 +43,7 @@ const LoginPage = () => {
             else{
                 setemailError("");
                 setpassError("")
+                localStorage.setItem("email",email)
                 navigate("/viewExpense")
             }
         }

@@ -1,38 +1,13 @@
-import React,{useState} from "react";
+import React,{useContext, useState} from "react";
+import { DataContext } from "../Contexts/data.context";
 
 const CreateExpense = ({ closeModal }) => {
 
-
-    //for adding data, createExpense Parameters
-    const [inputnamedata,setinputnamedata] = useState("");
-    const [inputdescdata,setinputdescdata] = useState("");
-    const [inputcategorydata,setinputcategorydata] = useState("");
-    const [inputdateofexpensedata,setinputdateofexpensedata] = useState("");
-    const [inputexpenseamountdata,setinputexpenseamountdata] = useState("");
-
     // adding items to the list
-    const [items,setItems] = useState([]);
+    const [items,setItems] = useState({});
 
-    const addItem = () => {
-        // if any field is missing then data will not be added
-        if(!inputnamedata || !inputdescdata || !inputcategorydata || !inputdateofexpensedata || !inputexpenseamountdata){}
-        else{
-          setItems([...items,{  
-            name: inputnamedata, 
-            desc: inputdescdata, 
-            category: inputcategorydata, 
-            dateofexpense: inputdateofexpensedata, 
-            expenseamount: inputexpenseamountdata
-          }])
-          setinputnamedata("");
-          setinputdescdata("");
-          setinputcategorydata("");
-          setinputexpenseamountdata("");
-          setinputdateofexpensedata("");
-        }
-    } 
-
-    
+    const {addItem} = useContext(DataContext)
+   
 
   return (
     <div className="modalBackground bg-slate-300 flex justify-center align-middle py-10 absolute w-full h-full top-0">
@@ -51,8 +26,8 @@ const CreateExpense = ({ closeModal }) => {
                 className="rounded-lg mt-2 p-2 bg-slate-200"
                 id="name"
                 type="text"
-                value={inputnamedata}
-                onChange={(e)=>{setinputnamedata(e.target.value)}} 
+                value={items.name}
+                onChange={(e)=>{setItems({...items,name:e.target.value})}} 
               />
             </div>
             <div className="flex flex-col py-2">
@@ -61,8 +36,8 @@ const CreateExpense = ({ closeModal }) => {
                 className="rounded-lg mt-2 p-2 bg-slate-200"
                 id="desc"
                 type="text"
-                value={inputdescdata}
-                onChange={(e)=>{setinputdescdata(e.target.value)}} 
+                value={items.desc}
+                onChange={(e)=>{setItems({...items,desc:e.target.value})}} 
               />
             </div>
             <div className="flex flex-col py-2">
@@ -71,8 +46,8 @@ const CreateExpense = ({ closeModal }) => {
                 className="rounded-lg mt-2 p-2 bg-slate-200"
                 id="category"
                 type="text"
-                value={inputcategorydata}
-                onChange={(e)=>{setinputcategorydata(e.target.value)}} 
+                value={items.category}
+                onChange={(e)=>{setItems({...items,category:e.target.value})}} 
               />
             </div>
             <div className="flex flex-col py-2">
@@ -80,9 +55,9 @@ const CreateExpense = ({ closeModal }) => {
               <input
                 className="rounded-lg mt-2 p-2 bg-slate-200"
                 id="dateofexpense"
-                type="text"
-                value={inputdateofexpensedata}
-                onChange={(e)=>{setinputdateofexpensedata(e.target.value)}} 
+                type="date"
+                value={items.dateofexpense}
+                onChange={(e)=>{setItems({...items,dateofexpense:e.target.value})}} 
               />
             </div>
             <div className="flex flex-col py-2">
@@ -91,20 +66,25 @@ const CreateExpense = ({ closeModal }) => {
                 className="rounded-lg mt-2 p-2 bg-slate-200"
                 id="expenseamount"
                 type="text"
-                value={inputexpenseamountdata}
-                onChange={(e)=>{setinputexpenseamountdata(e.target.value)}} 
+                value={items.expenseamount}
+                onChange={(e)=>{setItems({...items,expenseamount:e.target.value})}} 
               />
             </div>
           </form>
         </div>
         <div className="footer flex justify-between">
           <button
-            onClick={() => {closeModal(false);inputnamedata()}}
+            onClick={() => {closeModal(false);}}
             className="bg-green-600 rounded-md p-2 m-2 text-white"
           >
             Cancel
           </button>
-          <button className="bg-green-600 rounded-md p-2 m-2 text-white" onClick={()=>{addItem()}}   
+          <button className="bg-green-600 rounded-md p-2 m-2 text-white" onClick={()=>{
+            items.updatedat = new Date().toLocaleString() 
+            items.createdby = localStorage.getItem("email")
+            items.id = Math.floor(Math.random() * 1000000000)
+            addItem(items)
+          }}   
           >Create Expense</button>
         </div>
       </div>

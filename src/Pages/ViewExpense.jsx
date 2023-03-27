@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { MdModeEditOutline } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { DataContext } from "../Contexts/data.context";
 import "../index.css";
 import CreateExpense from "./CreateExpense";
 import DeleteExpense from "./DeleteExpense";
@@ -13,113 +14,122 @@ const ViewExpense = () => {
   const [deleteemodal, setdeleteModal] = useState(false);
 
 
-  const data = [
-    {
-      id: 1,
-      Name: "Purchased Book",
-      Category: "Books",
-      DateofExpense: "27 Febuary, 2023",
-      Amount: "INR 500",
-      UpdatedAt: "Just now",
-      CreatedBy: "Smith M",
-      Action: []
-    },
-    {
-      id: 2,
-      Name: "CBC Test",
-      Category: "Health",
-      DateofExpense: "27 Febuary, 2023",
-      Amount: "INR 1,500",
-      UpdatedAt: "7 hours ago",
-      CreatedBy: "Jacob Jo",
-    },
-    {
-      id: 3,
-      Name: "Boat Earphone",
-      Category: "Electronics",
-      DateofExpense: "24 Febuary, 2023",
-      Amount: "INR 1,000",
-      UpdatedAt: "7 hours ago",
-      CreatedBy: "me",
-    },
-    {
-      id: 3,
-      Name: "Delhi Flight",
-      Category: "Travel",
-      DateofExpense: "23 Febuary, 2023",
-      Amount: "INR 5000",
-      UpdatedAt: "15 hour ago",
-      CreatedBy: "John D",
-    },
-    {
-      id: 4,
-      Name: "Bangalore Flight",
-      Category: "Travel",
-      DateofExpense: "22 Febuary, 2023",
-      Amount: "INR 1,800",
-      UpdatedAt: "1 hous ago",
-      CreatedBy: "John D",
-    },
-    {
-      id: 5,
-      Name: "Fees",
-      Category: "Education",
-      DateofExpense: "21 Febuary, 2023",
-      Amount: "INR 1,800",
-      UpdatedAt: "1 hour ago",
-      CreatedBy: "me",
-    },
-    ,
-    {
-      id: 6,
-      Name: "Fees",
-      Category: "Education",
-      DateofExpense: "21 Febuary, 2022",
-      Amount: "INR 1,800",
-      UpdatedAt: "1 hour ago",
-      CreatedBy: "me",
-    }
-    // ,
-    // {
-    //   id: 7,
-    //   Name: "Fees",
-    //   Category: "Education",
-    //   DateofExpense: "21 Febuary, 2023",
-    //   Amount: "INR 1,800",
-    //   UpdatedAt: "1 hour ago",
-    //   CreatedBy: "me",
-    // },
-    // {
-    //   id: 8,
-    //   Name: "Fees",
-    //   Category: "Education",
-    //   DateofExpense: "21 Febuary, 2023",
-    //   Amount: "INR 1,800",
-    //   UpdatedAt: "1 hour ago",
-    //   CreatedBy: "me",
-    // },
-    // {
-    //   id: 9,
-    //   Name: "Fees",
-    //   Category: "Education",
-    //   DateofExpense: "21 Febuary, 2023",
-    //   Amount: "INR 1,800",
-    //   UpdatedAt: "1 hour ago",
-    //   CreatedBy: "me",
-    // }
-  ];
+  // const data = [
+  //   {
+  //     id: 1,
+  //     Name: "Purchased Book",
+  //     Category: "Books",
+  //     DateofExpense: "27 Febuary, 2023",
+  //     Amount: "INR 500",
+  //     UpdatedAt: "Just now",
+  //     CreatedBy: "Smith M",
+  //     Action: []
+  //   },
+  //   {
+  //     id: 2,
+  //     Name: "CBC Test",
+  //     Category: "Health",
+  //     DateofExpense: "27 Febuary, 2023",
+  //     Amount: "INR 1,500",
+  //     UpdatedAt: "7 hours ago",
+  //     CreatedBy: "Jacob Jo",
+  //   },
+  //   {
+  //     id: 3,
+  //     Name: "Boat Earphone",
+  //     Category: "Electronics",
+  //     DateofExpense: "24 Febuary, 2023",
+  //     Amount: "INR 1,000",
+  //     UpdatedAt: "7 hours ago",
+  //     CreatedBy: "me",
+  //   },
+  //   {
+  //     id: 3,
+  //     Name: "Delhi Flight",
+  //     Category: "Travel",
+  //     DateofExpense: "23 Febuary, 2023",
+  //     Amount: "INR 5000",
+  //     UpdatedAt: "15 hour ago",
+  //     CreatedBy: "John D",
+  //   },
+  //   {
+  //     id: 4,
+  //     Name: "Bangalore Flight",
+  //     Category: "Travel",
+  //     DateofExpense: "22 Febuary, 2023",
+  //     Amount: "INR 1,800",
+  //     UpdatedAt: "1 hous ago",
+  //     CreatedBy: "John D",
+  //   },
+  //   {
+  //     id: 5,
+  //     Name: "Fees",
+  //     Category: "Education",
+  //     DateofExpense: "21 Febuary, 2023",
+  //     Amount: "INR 1,800",
+  //     UpdatedAt: "1 hour ago",
+  //     CreatedBy: "me",
+  //   },
+  //   ,
+  //   {
+  //     id: 6,
+  //     Name: "Fees",
+  //     Category: "Education",
+  //     DateofExpense: "21 Febuary, 2022",
+  //     Amount: "INR 1,800",
+  //     UpdatedAt: "1 hour ago",
+  //     CreatedBy: "me",
+  //   }
+  //   // ,
+  //   // {
+  //   //   id: 7,
+  //   //   Name: "Fees",
+  //   //   Category: "Education",
+  //   //   DateofExpense: "21 Febuary, 2023",
+  //   //   Amount: "INR 1,800",
+  //   //   UpdatedAt: "1 hour ago",
+  //   //   CreatedBy: "me",
+  //   // },
+  //   // {
+  //   //   id: 8,
+  //   //   Name: "Fees",
+  //   //   Category: "Education",
+  //   //   DateofExpense: "21 Febuary, 2023",
+  //   //   Amount: "INR 1,800",
+  //   //   UpdatedAt: "1 hour ago",
+  //   //   CreatedBy: "me",
+  //   // },
+  //   // {
+  //   //   id: 9,
+  //   //   Name: "Fees",
+  //   //   Category: "Education",
+  //   //   DateofExpense: "21 Febuary, 2023",
+  //   //   Amount: "INR 1,800",
+  //   //   UpdatedAt: "1 hour ago",
+  //   //   CreatedBy: "me",
+  //   // }
+  // ];
+  
 
-
-
+  
+  
   // For searching by filter purpose
+  const {data, setDeleteItemId, setUpdateId} = useContext(DataContext);
   const [searchQuery, setSearchQuery] = useState(data);
+
+  useEffect(()=> {
+    setSearchQuery(data)
+    console.log("data", data)
+    console.log("searchQuery", searchQuery)
+  }, [data])
+
 
 
   // for handling search by name
   const handleSearchFilter = (e) => {
     const query = e.target.value;
     const updatedList = data.filter((item) => {
-      return item.Name.toLowerCase().includes(query.toLowerCase());
+      return item.name.toLowerCase().includes(query.toLowerCase());
     });
     setSearchQuery(updatedList);
   };
@@ -128,7 +138,7 @@ const ViewExpense = () => {
   const handledateFilter = (e) => {
     const query = e.target.value;
     const updatedList = data.filter((item) => {
-      return item.DateofExpense.toLowerCase().includes(query.toLowerCase());
+      return item.dateofexpense.toLowerCase().includes(query.toLowerCase());
     });
     setSearchQuery(updatedList);
   };
@@ -199,21 +209,22 @@ const ViewExpense = () => {
                 </tr>
               </thead>
               <tbody>
-                {searchQuery.map((row) => {
+                {searchQuery && searchQuery.map((row) => {
                   return (
                     <>
                       <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
-                        <td class="px-6 py-4">{row.Name}</td>
-                        <td class="px-6 py-4">{row.Category}</td>
-                        <td class="px-6 py-4">{row.DateofExpense}</td>
-                        <td class="px-6 py-4">{row.Amount}</td>
-                        <td class="px-6 py-4">{row.UpdatedAt}</td>
-                        <td class="px-6 py-4">{row.CreatedBy}</td>
+                        <td class="px-6 py-4">{row.name}</td>
+                        <td class="px-6 py-4">{row.category}</td>
+                        <td class="px-6 py-4">{row.dateofexpense}</td>
+                        <td class="px-6 py-4">{row.expenseamount}</td>
+                        <td class="px-6 py-4">{row.updatedat}</td>
+                        <td class="px-6 py-4">{row.createdby}</td>
                         <td class="px-6 py-4">
                           <div className="action-icons">
                             <button
                               className="action-icons"
                               onClick={() => {
+                                setUpdateId(row.id);
                                 seteditModal(true);
                               }}
                             >
@@ -222,6 +233,7 @@ const ViewExpense = () => {
                             <button
                               className="action-icons"
                               onClick={() => {
+                                setDeleteItemId(row.id);
                                 setdeleteModal(true);
                               }}
                             >
